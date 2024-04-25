@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .data-container {
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .data-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="data-container">
+    <span class="data-label">Name:</span>
+    <span th:text="${person.firstName}"></span>
+    <span class="data-label">Last Name:</span>
+    <span th:text="${person.lastName}"></span>
+    <span class="data-label">From:</span>
+    <span th:text="${person.country}"></span>
+    <span class="data-label">Gender:</span>
+    <span th:text="${person.gender}"></span>
+</div>
+</body>
+</html>

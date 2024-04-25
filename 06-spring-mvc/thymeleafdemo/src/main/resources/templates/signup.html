@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45A049; /* Green with darker shade on hover */
+        }
+          select#country {
+            width: 150px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-family: Arial, sans-serif;
+        }
+div.radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content:center;
+}
+
+input[type="radio"] {
+    margin-right:3px;
+}
+
+label.radio-label {
+    font-weight: normal;
+}
+
+    </style>
+</head>
+<body>
+<form th:action="@{/showPersonData}" th:object="${person}" method="get">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
+
+    <!--    <select name="country" id="country">-->
+    <!--        <option value="Brazil">Brazil</option>-->
+    <!--        <option value="France">France</option>-->
+    <!--        <option value="Germany">Germany</option>-->
+    <!--        <option value="India">India</option>-->
+    <!--        <option value="Ukraine">Ukraine</option>-->
+    <!--    </select>-->
+
+    <label for="country">Country: </label>
+    <select name="country" id="country" th:field="*{country}" required>
+        <option th:each="country : ${countries}" th:value="${country}" th:text="${country}">
+        </option>
+    </select>
+
+    <div class="radio-container">
+        <div>
+            <input type="radio" id="male" name="gender" th:value="male" th:field="*{gender}"/>
+            <label class="radio-label" for="male">Male</label>
+        </div>
+        <div>
+            <input type="radio" id="female" name="gender" th:value="female" th:field="*{gender}"/>
+            <label class="radio-label" for="female">Female</label>
+        </div>
+        <div>
+            <input type="radio" id="other" name="gender" th:value="other" th:field="*{gender}"/>
+            <label class="radio-label" for="other">Other</label>
+        </div>
+    </div>
+
+
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

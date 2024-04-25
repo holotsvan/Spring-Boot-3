@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User data</title>
+    <style>
+        body {
+          background: linear-gradient(to right, #d63031, #c23b2e);
+        }
+
+        h1 {
+            color: #fff; /* White text for better contrast */
+            margin-bottom: 20px;
+            text-align: center; /* Center align heading */
+        }
+
+        p {
+            color: #fff; /* White text for better contrast */
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>User data:</h1>
+<p>First Name: <span th:text="${person.firstName}"></span></p>
+<p>Last Name:  <span th:text="${person.lastName}"></span></p>
+<p>Free passes:  <span th:text="${person.freePasses}"></span></p>
+<p>Postal Code:  <span th:text="${person.postalCode}"></span></p>
+</body>
+</html>

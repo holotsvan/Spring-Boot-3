@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You!</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/thanks.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Thank You, <span th:text="${name}"></span>!</h1>
+  <p>Your feedback has been received.</p>
+  <a th:href="@{/feedback/form}" class="btn">Leave Another Feedback</a>
+</div>
+</body>
+</html>
