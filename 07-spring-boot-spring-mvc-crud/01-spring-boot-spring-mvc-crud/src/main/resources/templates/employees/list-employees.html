@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees Directory</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="employees-table">
+    <h1 class="employees-table__title">Employees</h1>
+    <a th:href="@{/employees/showFormForAdd}" class="button employees-add-button">Add Employee</a>
+    <table class="employees-table__table">
+        <thead>
+        <tr>
+            <th class="employees-table__header">ID</th>
+            <th class="employees-table__header">First Name</th>
+            <th class="employees-table__header">Last Name</th>
+            <th class="employees-table__header">Email</th>
+            <th class="employees-table__header">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}" class="employees-table__row">
+            <td class="employees-table__cell" th:text="${employee.id}"></td>
+            <td class="employees-table__cell" th:text="${employee.firstName}"></td>
+            <td class="employees-table__cell" th:text="${employee.lastName}"></td>
+            <td class="employees-table__cell" th:text="${employee.email}"></td>
+            <td class="employees-table__cell">
+                <a th:href="@{/employees/showFormForUpdate(employeeId=${employee.id})}" class="button button--blue">Update</a>
+                <a th:href="@{/employees/delete(employeeId=${employee.id})}"
+                   onclick="if(!(confirm('Are you sure you want to delete this employee?'))) return false;"
+                   class="button button--red">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

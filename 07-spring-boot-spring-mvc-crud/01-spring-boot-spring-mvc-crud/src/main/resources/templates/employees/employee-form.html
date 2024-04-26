@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Form to add employee</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="form-container">
+    <form th:action="@{/employees/save}" th:object="${employee}" method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <label for="firstName" class="form-label">First Name:</label>
+        <input type="text" name="firstName" id="firstName" th:field="*{firstName}" class="form-input" placeholder="John">
+
+        <label for="lastName" class="form-label">Last Name:</label>
+        <input type="text" name="lastName" id="lastName" th:field="*{lastName}" class="form-input" placeholder="Doe">
+
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" name="email" id="email" th:field="*{email}" class="form-input" placeholder="johndoe@gmail.com">
+
+        <button type="submit" class="form-button">Save</button>
+        <a th:href="@{/employees/list}" class="link">Back to Employees List</a>
+    </form>
+</div>
+</body>
+</html>
